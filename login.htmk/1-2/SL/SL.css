@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 패딩이 너비에 영향을 주지 않도록 설정 */
+}
+body{
+    background-color: black;
+}
+header{
+    background-color: blue;
+    margin: auto;
+    padding: 40px 40px;
+    font-size: 40px;
+}
+header ul{
+    flex-grow: 1;
+    display: flex;
+    color: white;
+    justify-content: center;
+    text-align: center;
+    gap: 40px;
+}
+main{
+    flex-direction: column;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-grow: 1;
+    font-size: 100px;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://ojsfile.ohmynews.com/PHT_IMG_FILE/2024/1014/IE003361173_PHT.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Dokdo', system-ui;
+}
+.writing{
+    align-items: center;
+}

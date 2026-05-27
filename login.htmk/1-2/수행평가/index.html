@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>간식 추천</title>
+    <style>
+       body{
+        background-color: rgb(245, 245, 245);
+       }
+       h1{
+        color: rgb(50, 80, 160);
+       }
+       .dish{
+        width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+       }
+    </style>
+</head>
+<body>
+    <div class="dish">
+        <h1>간식 추천</h1>
+        <li><p>쿠키</p></li>
+            <li><p>레몬에이드</p></li>
+            <li><p>하리보</p></li>
+            <li><p>젤리</p></li>
+    </div>
+    <div class="menu_box">
+        <h2>간식 추가하기</h2>
+        <input type="text" name="" id="input_snack">
+        <button name="btn_add">간식 추가하기</button>
+    </div>
+    <div class="menu_event">
+        <h2>오늘의 간식 추천</h2>
+        <p id="print">버튼을 누르면 간식이 추천 됩니다.</p>
+        <button id="btn_random">추천</button>
+    </div>
+    <script>
+        const snacks = ['치즈 토스트', '딸기 에이드', "초코 쿠키"]
+
+        const renderSnack = function(snack){
+            console.log(`renderSnack` + snack);
+            const li = document.createElement('li');
+            li.textContent = snack;
+            document.getElementById('menu_list').appendChild('li1');
+        }
+        for (let i = 0; i < snacks.length;i++){
+            renderSnack(snacks[i])
+        }
+        document.getElementById("btn_add") = function(){
+            const snack = document.getElementById('input_snack').value;
+            if(!snack){
+                alert('간식이름을 입력하세요.')
+            }else{
+                snacks.push(snack);
+                renderSnack(snack);
+                console.log("여기오나")
+                document.getElementById('input_snack').value=''
+            }
+        }
+        document.getElementById("btn_random").onclick = function(){
+            const randomNumber = Math.floor(Math.random() * snacks.length);
+            console.log(randomNumber)
+            document.getElementById('print').textContent = `오늘의 추천 간식은 ${snacks[randomNumber]}입니다`
+        }
+    </script>
+</body>
+</html>

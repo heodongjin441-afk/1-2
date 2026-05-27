@@ -1,0 +1,58 @@
+h1{text-align: center;
+background-color: black;
+color: white;
+padding: 50px;}
+.link1{
+    text-align: left;
+    display: inline-block;
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.div1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgb(118, 108, 108);
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    gap: 5px;
+}
+.songs{
+    display: inline-block;
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+body{background-color: rgb(7, 0, 0);}
+.link2{
+    background-color: rgb(254, 3, 233);
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+.song2{
+    background-color: rgb(3, 254, 254);
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    display: inline-block;
+}
+.song1{
+    background-color: rgb(255, 255, 255);
+    color: rgb(6, 0, 0);
+    padding: 10px 20px;
+    font-size: 20px;
+    text-align: center;
+}

@@ -1,0 +1,46 @@
+/* 1. 전체 설정: 배경을 다시 흰색으로 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white; /* 전체 배경은 흰색 */
+    color: #333;             /* 기본 글자색은 진한 회색 */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column; 
+    min-height: 100vh;
+}
+
+/* 2. 헤더: 여기만 파란색으로 유지 */
+.text {
+    background-color: #074CA1; /* 삼성 블루 */
+    color: white;              /* 헤더 글자만 흰색 */
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin: 0;                 /* 화면 끝까지 차도록 마진 제거 */
+    padding: 15px 50px;
+    list-style: none;
+    gap: 40px;
+}
+
+/* 3. 메인 문구 구역 */
+.WE {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+    /* 배경 이미지 설정 */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                  url('https://i.namu.wiki/i/EUhZbnvzBAMA_WTos0iqXBXavZHKt3xN2eoxpXW9IaUvlhXfGFdfxQO0QyMGHR2UTBfZ-8arYW5H2tIBnMoh4KIYzhlIxKmC-lXPtrQUNXYZG4hi0pvpTYuhxhkYsoA3_M4Ol53AasNpDgoq8O-UCQ.webp');
+    background-size: cover;      /* 이미지가 화면에 꽉 차게 */
+    background-position: center;  /* 이미지의 중심을 가운데로 */
+    background-attachment: fixed; /* 스크롤해도 배경은 고정 (선택 사항) */
+
+    /* 글자 스타일 */
+    font-size: 80px;
+    font-weight: 900;
+    color: white; /* 배경이 생겼으니 글자는 다시 흰색으로! */
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7); /* 글자를 더 잘 보이게 함 */
+}

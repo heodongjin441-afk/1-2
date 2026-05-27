@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1 onclick="alert('클릭');" id="h1">마우스 이벤트</h1>
+        <script>
+            h1.addEventListener('click', function(event){
+                console.log(event.type);
+                console.log(event.currentTarget);
+                console.log(event.clientX);
+                console.log(event.clientY);
+                console.log(this); // h1 태그가 this
+            })
+        </script>
+        <input type="button" id="btnclick" value="버튼"/>
+        <script>
+            btnclick.addEventListener('click', function(){ // input 태그가 this
+                console.log('this');
+                console.log(this.value);
+                console.log('click');
+            });
+            function two(){
+                console.log('two click');
+                // click 할 떄 two 함수 삭제
+                btnclick.removeEventListener('click', two)
+            }
+            btnclick.addEventListener('click', two);
+        </script>
+        <p id ="pp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio tenetur architecto beatae eos quia laborum rerum aspernatur velit reprehenderit saepe temporibus dolorum quod, eius maiores voluptates explicabo repudiandae enim dicta.</p>
+        <script>
+            const mouseOutFn = function(){
+                console.log('마우스 나갔어');
+            }
+            const mouseOverFn = function(){
+                console.log('마우스 들어왔어');
+            }
+            document.getElementById('pp').onmouseout = mouseOutFn;
+            document.getElementById('pp').onmouseover = mouseOverFn;
+        </script>
+    </div>
+</body>
+</html>

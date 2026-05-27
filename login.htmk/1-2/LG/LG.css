@@ -1,0 +1,53 @@
+/* 1. 전체 설정 */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 화면 전체 높이 사용 */
+    font-family: 'Arial', sans-serif;
+    background-color: white; /* 기본 배경 */
+}
+
+/* 2. 상단 바 스타일 (LG 전용 레드) */
+.LG {
+    display: flex;
+    align-items: center;    /* 세로 중앙 정렬 */
+    gap: 40px;
+    background-color: #C30452; /* LG 트윈스 레드 계열 */
+    color: white;
+    margin: 0;
+    padding: 15px 40px;
+    list-style: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.LG p {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* 3. 중앙 문구 영역 (야구장 배경) */
+.hero-section {
+    flex-grow: 1;           /* 남은 화면 공간을 모두 차지 */
+    display: flex;
+    justify-content: center; /* 가로 중앙 */
+    align-items: center;     /* 세로 중앙 */
+    
+    /* 배경 설정: 잠실 야구장 사진을 사용해보세요 */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://yagongso.com/wp-content/uploads/2025/12/KakaoTalk_Photo_2025-12-28-19-37-51-678x381.jpeg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+/* 중앙 큰 글씨 */
+.together {
+    color: white;
+    font-size: 100px;
+    font-weight: 900;
+    margin: 0;
+    text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
+    letter-spacing: -2px;
+}

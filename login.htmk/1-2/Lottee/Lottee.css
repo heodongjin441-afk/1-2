@@ -1,0 +1,48 @@
+header{
+    display: flex;
+    margin: 0;
+    padding: 15px 40px;
+    background-color: red;
+    color: white;
+    flex-shrink: 0;
+}
+header ul{
+    font-size: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    gap: 40px;
+    margin-left: auto;
+}
+main{
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+    background-color: black;
+    color: white;
+    flex-grow: 1;
+}
+.GISE{
+    flex-grow: 1;
+    font-family: "Dokdo", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 100px;
+  background-position: center;
+  background : linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+  url('https://i.namu.wiki/i/VaOBOe33ZzyN5Lkbilqh5XetgXaXrnaCuyJHTRx62eHyNej0tmK_9SFTUAxvYkB_L0_H7Ej5VtL9hT3y-ah0cCja-lCOPFySggCz8NKJJg7cXoesFJUUq00LZW7wMHtmmQGZO0d1cVkEvasLbU6C3g.webp')
+}
+body{
+    background-color: rgb(4, 30, 66);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.hi:hover{
+    color: rgb(251, 255, 3);
+    cursor: pointer;
+    font-weight: bold;
+}

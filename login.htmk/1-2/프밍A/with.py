@@ -1,0 +1,1 @@
+f = open("/Users/heodongjin/1-2/login.htmk/1-2/프밍A/foo.txt", "w")

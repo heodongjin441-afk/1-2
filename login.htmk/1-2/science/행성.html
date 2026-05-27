@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고1 통합과학: 별의 진화 과정</title>
+    <style>
+        :root {
+            --bg: #05070a;
+            --card: #11141d;
+            --accent-yellow: #ffcc00;
+            --accent-red: #ff4d4d;
+            --accent-blue: #4da6ff;
+            --text: #e0e0e0;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Pretendard', sans-serif;
+            line-height: 1.8;
+        }
+
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1e2e 0%, var(--bg) 100%);
+            border-bottom: 1px solid #333;
+        }
+
+        header h1 { color: #fff; font-size: 2.2rem; margin: 0; }
+        header p { color: var(--accent-blue); margin-top: 10px; }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .path-title {
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            padding-left: 15px;
+            border-left: 5px solid var(--accent-blue);
+            color: #fff;
+        }
+
+        .star-card {
+            background: var(--card);
+            border: 1px solid #222;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .star-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateX(10px);
+        }
+
+        .star-header {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .star-name { font-size: 1.2rem; font-weight: bold; }
+        .click-tag { font-size: 0.8rem; color: #666; }
+
+        .star-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .star-card.active .star-content {
+            max-height: 800px;
+        }
+
+        .inner { padding: 0 25px 25px; }
+
+        .keyword { color: var(--accent-yellow); font-weight: bold; }
+        
+        /* 강조 박스 */
+        .evolution-box {
+            background: #0d1117;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid var(--accent-red);
+            font-size: 0.95rem;
+        }
+
+        .element-list {
+            display: inline-block;
+            background: #222;
+            padding: 2px 8px;
+            border-radius: 5px;
+            color: #00ffcc;
+            font-family: monospace;
+            margin: 2px;
+        }
+
+        footer { text-align: center; padding: 60px; color: #444; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>별의 진화와 원소의 탄생</h1>
+    <p>질량에 따라 결정되는 별의 운명</p>
+</header>
+
+<div class="container">
+
+    <div class="path-title">0. 탄생 (공통 단계)</div>
+    <div class="star-card" onclick="toggleCard(this)">
+        <div class="star-header">
+            <span class="star-name">성운과 원시 별</span>
+            <span class="click-tag">상세 보기 ▼</span>
+        </div>
+        <div class="star-content">
+            <div class="inner">
+                <p><span class="keyword">성운</span>의 밀도가 높은 곳에서 중력 수축이 일어나 온도가 상승하며 <span class="keyword">원시 별</span>이 형성됩니다. 이후 중심 온도가 1,000만 K에 도달하면 주계열성이 됩니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="path-title" style="border-left-color: var(--accent-yellow);">경로 A: 질량이 태양 정도인 별</div>
+    
+    <div class="star-card" onclick="toggleCard(this)">
+        <div class="star-header">
+            <span class="star-name">주계열성 (Main Sequence)</span>
+            <span class="click-tag">상세 보기 ▼</span>
+        </div>
+        <div class="star-content">
+            <div class="inner">
+                <p>별의 일생 중 90%를 차지하는 가장 안정적인 시기입니다. 중력 수축과 내부 기체 압력이 평형을 이루는 <span class="keyword">정역학 평형</span> 상태입니다.</p>
+                <div class="evolution-box">
+                    <b>생성 원소:</b> <span class="element-list">He(헬륨)</span><br>
+                    <b>에너지원:</b> 수소 핵융합 반응
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="star-card" onclick="toggleCard(this)">
+        <div class="star-header">
+            <span class="star-name">적색 거성 (Red Giant)</span>
+            <span class="click-tag">상세 보기 ▼</span>
+        </div>
+        <div class="star-content">
+            <div class="inner">
+                <p>수소가 고갈되면 중심부가 수축하며 온도가 올라가고, 바깥층은 팽창하여 크기가 커지고 온도는 낮아져 붉게 보입니다.</p>
+                <div class="evolution-box">
+                    <b>생성 원소:</b> <span class="element-list">C(탄소)</span>, <span class="element-list">O(산소)</span><br>
+                    <b>에너지원:</b> 헬륨 핵융합 반응
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="star-card" onclick="toggleCard(this)">
+        <div class="star-header">
+            <span class="star-name">행성상 성운 & 백색 왜성</span>
+            <span class="click-tag">상세 보기 ▼</span>
+        </div>
+        <div class="star-content">
+            <div class="inner">
+                <p>바깥층은 우주 공간으로 방출되어 <span class="keyword">행성상 성운</span>이 되고, 중심부는 수축하여 작고 뜨거운 <span class="keyword">백색 왜성</span>으로 남으며 생을 마감합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="path-title" style="border-left-color: var(--accent-red);">경로 B: 질량이 태양의 10배 이상인 별</div>
+
+    <div class="star-card" onclick="toggleCard(this)">
+        <div class="star-header">
+            <span class="star-name">초거성 (Supergiant)</span>
+            <span class="click-tag">상세 보기 ▼</span>
+        </div>
+        <div class="star-content">
+            <div class="inner">
+                <p>질량이 매우 커서 적색 거성보다 훨씬 더 화렬한 핵융합 반응이 일어납니다. 중심부에서 무거운 원소들이 층을 이루며 생성됩니다.</p>
+                <div class="evolution-box">
+                    <b>최종 생성 원소:</b> <span class="element-list">Fe(철)</span>까지 생성<br>
+                    <b>참고:</b> 철은 매우 안정하여 더 이상의 핵융합이 일어나지 않습니다.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="star-card" onclick="toggleCard(this)">
+        <div class="star-header">
+            <span class="star-name">초신성 폭발 (Supernova)</span>
+            <span class="click-tag">상세 보기 ▼</span>
+        </div>
+        <div class="star-content">
+            <div class="inner">
+                <p>철까지 만들어진 후 급격히 수축하다가 거대한 폭발을 일으킵니다. 이때 발생하는 막대한 에너지로 철보다 무거운 원소가 만들어집니다.</p>
+                <div class="evolution-box">
+                    <b>생성 원소:</b> <span class="element-list">Cu(구리)</span>, <span class="element-list">Au(금)</span>, <span class="element-list">Pb(납)</span>, <span class="element-list">U(우라늄)</span> 등
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="star-card" onclick="toggleCard(this)">
+        <div class="star-header">
+            <span class="star-name">중성자별 또는 블랙홀</span>
+            <span class="click-tag">상세 보기 ▼</span>
+        </div>
+        <div class="star-content">
+            <div class="inner">
+                <p>폭발 후 남은 중심부의 질량에 따라 밀도가 극도로 높은 <span class="keyword">중성자별</span>이 되거나, 중력이 너무 강해 빛조차 빠져나가지 못하는 <span class="keyword">블랙홀</span>이 됩니다.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>고등학교 1학년 통합과학 지식 기반 자료</p>
+</footer>
+
+<script>
+    function toggleCard(element) {
+        const isActive = element.classList.contains('active');
+        
+        // 클릭한 것 외에 다른 카드 닫기 (선택 사항)
+        // document.querySelectorAll('.star-card').forEach(c => c.classList.remove('active'));
+
+        if (!isActive) {
+            element.classList.add('active');
+            element.querySelector('.click-tag').innerText = '닫기 ▲';
+        } else {
+            element.classList.remove('active');
+            element.querySelector('.click-tag').innerText = '상세 보기 ▼';
+        }
+    }
+</script>
+
+</body>
+</html>

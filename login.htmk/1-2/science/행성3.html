@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태양보다 질량이 큰 별들</title>
+    <style>
+        :root {
+            --text-light: #e0e0e0;
+            --text-dark: #b0b0b0;
+            --accent-main: #9c27b0; /* 보라색 계열 */
+            --accent-sub: #ffeb3b; /* 강조를 위한 노란색 */
+            --card-bg: rgba(20, 10, 30, 0.8); /* 어두운 반투명 카드 배경 */
+            --border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: var(--text-light);
+            font-family: 'Pretendard', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.8;
+            scroll-behavior: smooth;
+        }
+
+        /* 1. 우주 배경 효과 */
+        .universe-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                /* 블랙홀/초신성 느낌 그라디언트 */
+                radial-gradient(circle at 70% 20%, rgba(255, 100, 0, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 30% 80%, rgba(150, 0, 255, 0.08) 0%, transparent 40%),
+                linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.7)),
+                #000; /* 가장 어두운 배경 */
+            background-size: cover;
+            z-index: -2;
+        }
+
+        /* 움직이는 별들 */
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+            box-shadow: 0 0 5px rgba(255,255,255,0.8);
+            animation: twinkle var(--twinkle-duration) infinite alternate,
+                       moveStars var(--move-duration) linear infinite;
+        }
+
+        @keyframes twinkle {
+            from { opacity: 0.2; }
+            to { opacity: 0.8; }
+        }
+
+        @keyframes moveStars {
+            from { transform: translateY(100vh) translateX(0); }
+            to { transform: translateY(-100vh) translateX(0); }
+        }
+
+        /* 2. 페이지 헤더 */
+        header {
+            text-align: center;
+            padding: 100px 20px 50px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: clamp(2rem, 6vw, 3.8rem);
+            color: white;
+            margin: 0;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px var(--accent-main);
+        }
+
+        header p {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: var(--accent-sub);
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        /* 3. 컨텐츠 섹션 */
+        .content-section {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 80px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .info-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-card h2 {
+            font-size: 2.2rem;
+            color: var(--accent-main);
+            margin-top: 0;
+            border-bottom: 3px solid var(--accent-sub);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .info-card p {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: var(--accent-sub);
+            font-weight: bold;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .detail-list li {
+            background: rgba(0,0,0,0.3);
+            border-left: 5px solid var(--accent-main);
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .detail-list li strong {
+            color: var(--accent-main);
+            margin-right: 10px;
+        }
+
+        /* 푸터 */
+        footer {
+            text-align: center;
+            padding: 60px;
+            color: #666;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 반응형 */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .info-card { padding: 30px; }
+            .info-card h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="universe-background" id="universeBg"></div>
+
+    <header>
+        <h1>우주 종말의 드라마</h1>
+        <p>초신성 폭발, 중성자별, 그리고 블랙홀</p>
+    </header>
+
+    <div class="content-section">
+
+        <div class="info-card">
+            <h2>💥 초신성 폭발 (Supernova)</h2>
+            <p>질량이 태양의 8배 이상인 <span class="highlight">거대한 별이 생을 마감하며 일으키는 우주적 규모의 대폭발</span>입니다. 별의 중심에서 철(Fe)이 생성된 후 핵융합이 멈추면, 중력을 이기지 못하고 순식간에 붕괴하면서 엄청난 에너지를 방출합니다.</p>
+            <ul class="detail-list">
+                <li><strong>발생 원인:</strong> 초거성 중심 핵의 붕괴</li>
+                <li><strong>생성 원소:</strong> 폭발 에너지로 <span class="highlight">철보다 무거운 모든 원소 (금, 은, 우라늄 등)</span> 생성</li>
+                <li><strong>관측:</strong> 평소 보이지 않던 별이 갑자기 밤하늘에서 밝게 빛나며 관측됩니다.</li>
+                <li><strong>의의:</strong> 우주에 새로운 원소들을 퍼뜨려 다음 세대 별과 행성, 그리고 생명체의 재료가 됩니다.</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h2>✨ 중성자별 (Neutron Star)</h2>
+            <p>초신성 폭발 후 남은 중심부의 질량이 <span class="highlight">태양의 약 1.4배 ~ 3배 정도</span>일 때 형성되는, 우주에서 가장 밀도가 높은 천체 중 하나입니다.</p>
+            <ul class="detail-list">
+                <li><strong>구성:</strong> 양성자와 전자가 합쳐져 <span class="highlight">중성자</span>로만 이루어져 있습니다.</li>
+                <li><strong>밀도:</strong> 상상을 초월하는 고밀도로, 각설탕 한 개 부피가 에베레스트산 전체의 무게와 맞먹습니다.</li>
+                <li><strong>크기:</strong> 지름 약 20km 정도로 매우 작지만, 회전 속도가 매우 빠르고 강력한 자기장을 가집니다.</li>
+                <li><strong>펄서:</strong> 일부 중성자별은 전파를 주기적으로 방출하여 '펄서(Pulsar)'로 관측됩니다.</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h2>🌀 블랙홀 (Black Hole)</h2>
+            <p>초신성 폭발 후 남은 중심부의 질량이 <span class="highlight">태양의 약 3배 이상</span>일 때, 중력이 너무 강력하여 모든 물질을 빨아들이고 <span class="highlight">빛조차 탈출할 수 없는</span> 시공간의 영역입니다.</p>
+            <ul class="detail-list">
+                <li><strong>사건의 지평선:</strong> 블랙홀의 경계선으로, 이곳을 넘어가면 어떤 것도 되돌아올 수 없습니다.</li>
+                <li><strong>관측:</strong> 직접 볼 수 없으나, 주변 물질을 빨아들일 때 방출되는 X선이나 주변 별들의 궤도 변화를 통해 간접적으로 존재를 확인합니다.</li>
+                <li><strong>종류:</strong> 별이 진화하여 만들어지는 <span class="highlight">항성 질량 블랙홀</span>, 은하 중심에 존재하는 <span class="highlight">초거대 질량 블랙홀</span> 등이 있습니다.</li>
+                <li><strong>우주의 청소부:</strong> 주변의 모든 것을 흡수하여 우주 공간에서 사라지게 하는 역할을 합니다.</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Cosmic Odyssey. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript로 배경에 별들을 동적으로 생성
+        const universeBg = document.getElementById('universeBg');
+        for (let i = 0; i < 200; i++) { // 200개의 별 생성
+            const star = document.createElement('div');
+            star.className = 'star';
+            const x = Math.random() * 100; // x축은 0% ~ 100%
+            const y = Math.random() * 200; // y축은 0% ~ 200% (화면 아래에서 시작)
+            const size = Math.random() * 2; // 별 크기 (0~2px)
+            const moveDuration = 20 + Math.random() * 30; // 움직이는 속도 (20~50초)
+            const twinkleDuration = 1 + Math.random() * 2; // 반짝이는 속도 (1~3초)
+
+            star.style.left = `${x}vw`;
+            star.style.top = `${y}vh`; // 처음에는 화면 아래에 배치
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.setProperty('--move-duration', `${moveDuration}s`); // CSS 변수로 전달
+            star.style.setProperty('--twinkle-duration', `${twinkleDuration}s`); // CSS 변수로 전달
+            
+            universeBg.appendChild(star);
+        }
+
+        // Intersection Observer를 사용하여 스크롤 시 카드 애니메이션
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible'); // 화면에 보이면 'is-visible' 클래스 추가
+                } else {
+                    // 선택적으로, 스크롤아웃 시 애니메이션 초기화 (다시 나타나게 하려면 필요)
+                    // entry.target.classList.remove('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.3 // 요소가 30% 보이면 트리거
+        });
+
+        // 모든 '.info-card' 요소에 옵저버 적용
+        document.querySelectorAll('.info-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
